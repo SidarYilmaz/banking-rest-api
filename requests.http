@@ -1,0 +1,35 @@
+### Create first account
+POST http://localhost:8080/api/v1/accounts
+Content-Type: application/json
+
+{
+  "ownerName": "Ada Lovelace",
+  "currency": "TRY",
+  "initialBalance": 1000.00
+}
+
+### Create second account
+POST http://localhost:8080/api/v1/accounts
+Content-Type: application/json
+
+{
+  "ownerName": "Grace Hopper",
+  "currency": "TRY",
+  "initialBalance": 250.00
+}
+
+### Fetch an account by IBAN
+GET http://localhost:8080/api/v1/accounts/{{iban}}
+
+### Transfer funds between two accounts
+POST http://localhost:8080/api/v1/accounts/transfers
+Content-Type: application/json
+
+{
+  "sourceIban": "{{sourceIban}}",
+  "targetIban": "{{targetIban}}",
+  "amount": 300.00
+}
+
+### List transactions for an account
+GET http://localhost:8080/api/v1/accounts/{{iban}}/transactions
